@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: web | My Octopress Blog]]></title>
+  <link href="http://wangwangra.github.com/blog/categories/web/atom.xml" rel="self"/>
+  <link href="http://wangwangra.github.com/"/>
+  <updated>2012-12-19T16:10:35+08:00</updated>
+  <id>http://wangwangra.github.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[something original from twitter bootstrap]]></title>
+    <link href="http://wangwangra.github.com/blog/2012/12/02/something-original-from-twitter-bootstrap/"/>
+    <updated>2012-12-02T00:00:00+08:00</updated>
+    <id>http://wangwangra.github.com/blog/2012/12/02/something-original-from-twitter-bootstrap</id>
+    <content type="html"><![CDATA[<p>I clone <a href="http://jekyllbootstrap.com" title="jekyll bootstrap">plusjade's jekyll-bootstrap</a> to setup my <a href="http://wangwangwar.github.com" title="wangwangwar@github">blog@github</a>. I want
+to make the pages more charming and learn a little CSS btw. Plusjade's
+jekyll-bootstrap embeded twitter's bootstrap but out-of-dated. So I clone it
+from <a href="http://twitter.github.com/bootstrap" title="twitter/bootstrap">twitter/bootstrap@github</a>. Then it requires node.js, I jump to
+<a href="http://nodejs.org" title="node.js">node.js</a> and search <a href="https://en.wikipedia.org/wiki/Nodejs" title="nodejs@wiki">@wikipedia</a> btw. OMG, I get interested in Google's
+<a href="https://en.wikipedia.org/wiki/V8_(JavaScript_engine)" title="V8 JS engine">V8 JS engine</a> and <a href="https://en.wikipedia.org/wiki/Push_technology" title="push tech">push technology</a>:)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[css selector]]></title>
+    <link href="http://wangwangra.github.com/blog/2012/11/30/css/"/>
+    <updated>2012-11-30T00:00:00+08:00</updated>
+    <id>http://wangwangra.github.com/blog/2012/11/30/css</id>
+    <content type="html"><![CDATA[<h3>basic selector</h3>
+
+<ul>
+<li><p>tag selector</p>
+
+<p>  html pages tags.</p>
+
+<pre><code>  # html
+  &lt;h1&gt;HEADER&lt;/h1&gt;
+  # css
+  h1 { color: red; font-size: 25px; }
+</code></pre></li>
+<li><p>class selector</p>
+
+<p>  In html we can put tags into differet class, like</p>
+
+<pre><code>  # html
+  &lt;p class="red"&gt;class selector 1&lt;/p&gt;
+  &lt;p class="green"&gt;class selector 2&lt;/p&gt;
+  # css
+  .red { color: red; }
+  .green { color: green; }
+</code></pre></li>
+<li><p>ID selector</p>
+
+<p>  It's almost same with class selector. The difference is that ID selector
+  can only be used once in a single html pages (class selector can be used
+  more than once).</p>
+
+<pre><code>  # html
+  &lt;p id="one"&gt;ID selector 1&lt;/p&gt;
+  &lt;p id="two"&gt;ID selector 2&lt;/p&gt;
+  # css
+  #one { font-weight: bold; }
+  #two { font-size: 30px; }
+</code></pre></li>
+</ul>
+
+
+<h3>complex selector</h3>
+
+<p>Mix up the three basic seletor, we can get more powerful and more accurate
+selection.</p>
+
+<ul>
+<li><p>intersection selector</p>
+
+<p>  Mix up two basic selector and get their intersection.
+  The first must be <em>tag selector</em> and the second can be <em>class selector</em>
+  or <em>ID selector</em>. Space is not allowed between the two selectors.</p>
+
+<pre><code>  h1, h2, h3, h4, h5, p { color: purple; font-size: 15px; }
+  h2.special { text-decoration: underline; }
+</code></pre></li>
+<li><p>child selector</p>
+
+<pre><code>  # html
+  &lt;body&gt;
+      &lt;p&gt;Nested&lt;span&gt;SPAN&lt;/span&gt;is here.&lt;/p&gt;
+      &lt;span&gt;Outer span&lt;/span&gt;is there.
+  &lt;/body&gt;    
+  # css
+  p span { color: red; }
+  span { color: blue; }
+</code></pre></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

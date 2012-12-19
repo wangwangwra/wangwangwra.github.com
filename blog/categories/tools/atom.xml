@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: tools | My Octopress Blog]]></title>
+  <link href="http://wangwangra.github.com/blog/categories/tools/atom.xml" rel="self"/>
+  <link href="http://wangwangra.github.com/"/>
+  <updated>2012-12-19T16:10:35+08:00</updated>
+  <id>http://wangwangra.github.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[linux tips]]></title>
+    <link href="http://wangwangra.github.com/blog/2012/12/17/linux-tips/"/>
+    <updated>2012-12-17T00:00:00+08:00</updated>
+    <id>http://wangwangra.github.com/blog/2012/12/17/linux-tips</id>
+    <content type="html"><![CDATA[<ul>
+<li><p>以16进制方式查看文件</p>
+
+<pre><code>  xxd &lt;file&gt;
+</code></pre>
+
+<p>  也可以用vim查看</p>
+
+<pre><code>  vim -b &lt;file&gt;
+</code></pre>
+
+<p>  转换为16进制</p>
+
+<pre><code>  :%!xxd
+</code></pre>
+
+<p>  最后再转换回来</p>
+
+<pre><code>  :%!xxd -r
+</code></pre></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[git tips]]></title>
+    <link href="http://wangwangra.github.com/blog/2012/12/09/git-tips/"/>
+    <updated>2012-12-09T00:00:00+08:00</updated>
+    <id>http://wangwangra.github.com/blog/2012/12/09/git-tips</id>
+    <content type="html"><![CDATA[<ul>
+<li><p>modify the <em>last</em> commit</p>
+
+<pre><code>  git commit --amend
+</code></pre></li>
+<li><p>modify the <em>last 5</em> commit</p>
+
+<pre><code>  git rebase -i HEAD~5
+</code></pre>
+
+<p>  modify <code>pick</code> of which you want to modify to <code>edit</code> and :wq to exit.</p>
+
+<pre><code>  git log
+</code></pre>
+
+<p>  you can find you are at the commit which you <code>edit</code>, do as modify the
+  <em>last</em> commit and</p>
+
+<pre><code>  git commit --amend
+</code></pre>
+
+<p>  back by</p>
+
+<pre><code>  git rebase --continue
+</code></pre></li>
+<li><p>undo all the works, back to latest commit state</p>
+
+<pre><code>  git reset --hard HEAD
+</code></pre></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[vim tips]]></title>
+    <link href="http://wangwangra.github.com/blog/2012/12/02/vim-tips/"/>
+    <updated>2012-12-02T00:00:00+08:00</updated>
+    <id>http://wangwangra.github.com/blog/2012/12/02/vim-tips</id>
+    <content type="html"><![CDATA[<ul>
+<li><p>back to last cursor position</p>
+
+<pre><code>  ctrl-o
+</code></pre></li>
+<li><p>format the code</p>
+
+<pre><code>  gg=G
+</code></pre></li>
+<li><p>apply vim cmd inside a file</p>
+
+<pre><code>  /* vim: set XXX=XXX: */
+</code></pre></li>
+<li><p>fold</p>
+
+<pre><code>  :set foldmethod=XXX
+</code></pre>
+
+<p>  methods(XXX) usually use 'indent' or 'marker'</p>
+
+<p>  cmd:</p>
+
+<ul>
+<li>zc fold</li>
+<li>zC fold all</li>
+<li>zo unfold</li>
+<li>zO unfold all</li>
+<li>[z goto current begin</li>
+<li>]z goto current end</li>
+<li>zj goto next fold</li>
+<li>zk goto last fold</li>
+</ul>
+</li>
+<li><p>undo</p>
+
+<pre><code>  u
+</code></pre></li>
+<li><p>redo</p>
+
+<pre><code>  ctrl-r
+</code></pre></li>
+<li><p>in C file goto header file</p>
+
+<pre><code>  gf
+</code></pre>
+
+<p>  If you encounter "在路径中找不到头文件$#$#%@~", add your path:</p>
+
+<pre><code>  set path+=/your/path/1,/your/path/2
+</code></pre>
+
+<p>  <em>WARNING</em>, your path is added in the tail, after default path <code>.</code> and
+  <code>/usr/include</code>. That means system search file from <code>.</code> first, then
+  <code>/usr/include</code>, finally your path. If sequence matters, do this:</p>
+
+<pre><code>  set path=.,/your/path/1,/your/path/2,/usr/include
+</code></pre></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[dnsmasq]]></title>
+    <link href="http://wangwangra.github.com/blog/2012/11/28/dnsmasq/"/>
+    <updated>2012-11-28T00:00:00+08:00</updated>
+    <id>http://wangwangra.github.com/blog/2012/11/28/dnsmasq</id>
+    <content type="html"><![CDATA[<ol>
+<li><p>Close system's NetworkManager built-in dnsmasq, prepare to run stand-alone dnsmasq. <a href="http://sokratisg.wordpress.com/2012/03/31/ubuntu-precise-12-04-get-rid-of-nms-dnsmasq-and-setup-your-own">1</a></p>
+
+<pre><code> vi /etc/NetworkManger/NetworkManager.conf
+ #dns=dnsmasq
+ restart network-manager
+</code></pre></li>
+<li><p>Install complete dnsmasq.</p>
+
+<pre><code> apt-get install dnsmasq
+</code></pre></li>
+<li><p>Configure dnsmasq, some necessary options:</p>
+
+<pre><code> vi /etc/dnsmasq.conf
+ # get killgfw.conf later
+ domain-needed
+ resolv-file=/etc/dnsmasq.d/killgfw.conf
+ cache-size=10000
+ strict-order
+ no-resolv
+ no-poll
+</code></pre></li>
+<li><p>Download killgfw.conf, you can modify as you like. <a href="https://code.google.com/p/autoddvpn/wiki/DNSMasq">2</a> <a href="http://ninehills.info/2011/12/17/dnsmasq.html">3</a></p>
+
+<pre><code> mkdir -pv /etc/dnsmasq.d 
+ wget https://smarthosts.googlecode.com/svn/trunk/dnsmasq.conf \
+     -O /etc/dnsmasq.d/killgfw.conf
+</code></pre></li>
+<li><p>Start dnsmasq service. <a href="https://code.google.com/p/autoddvpn/wiki/DNSMasq">s</a></p>
+
+<pre><code> service dnsmasq start
+</code></pre></li>
+<li><p>Disable pppoe's dns function. <a href="http://linux.die.net/man/5/pppoe.conf">d</a></p>
+
+<p> open pppoe's configure file</p>
+
+<pre><code> vi /etc/ppp/pppoe.conf
+</code></pre>
+
+<p> modify DNS type</p>
+
+<pre><code> DNSTYPE=NOCHANGE
+</code></pre>
+
+<p> and delete system's resolv.conf</p>
+
+<pre><code> rm /etc/resolv.conf
+</code></pre></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Markdown Tips]]></title>
+    <link href="http://wangwangra.github.com/blog/2012/11/25/markdown/"/>
+    <updated>2012-11-25T00:00:00+08:00</updated>
+    <id>http://wangwangra.github.com/blog/2012/11/25/markdown</id>
+    <content type="html"><![CDATA[<p>This is just a test of <em>awesome</em> Jekyll static website generator.</p>
+
+<h3>Block Elements</h3>
+
+<h4>段落 (PARAGRAPH)</h4>
+
+<p>连续的行就会自然地形成段落，如果出现空行，则会自动分段</p>
+
+<p>你瞧，是不是分段了？因为我真的空了一行:)</p>
+
+<h4>标题 (HEADER)</h4>
+
+<h5>Setext-style</h5>
+
+<p>在一行文字下加任意数量的=和-就分别得到一级标题和二级标题</p>
+
+<h1>This is an H1</h1>
+
+<h2>This is an H2</h2>
+
+<h5>Atx-style</h5>
+
+<p>在一行文字前加 1 到 6 个 # 就让这行文字变成标题</p>
+
+<h1>This is an H1</h1>
+
+<h2>This is an H2</h2>
+
+<h6>This is an H6</h6>
+
+<h4>块引用 (BLOCKQUOTE)</h4>
+
+<blockquote><p>This is a blockquote with two paragraphs.
+This is a blockquote with two paragraphs.
+This is a blockquote with two paragraphs.</p>
+
+<blockquote><p>This is a blockquote with two paragraphs.
+This is a blockquote with two paragraphs.</p></blockquote></blockquote>
+
+<h4>列表 (LIST)</h4>
+
+<p><em>中文的列表有问题，必须把markdown引擎由默认的 maruku 换成 rdiscount 或者其他的。</em></p>
+
+<p>在配置文件 <code>_config.yml</code> 中添上</p>
+
+<pre><code>markdown: rdiscount
+</code></pre>
+
+<ul>
+<li>星号可以</li>
+<li>加号亦可</li>
+<li>减号居然也可以</li>
+<li>随便什么数字也行，靠，还又没天理？</li>
+</ul>
+
+
+<h4>代码块 (CODE BLOCK)</h4>
+
+<p>This is a normal paragraph:</p>
+
+<pre><code>This is a code block.
+</code></pre>
+
+<h4>水平线 (HORIZONTAL RULE)</h4>
+
+<hr />
+
+<hr />
+
+<hr />
+
+<hr />
+
+<hr />
+
+<h3>行内元素 (SPAN ELEMENT)</h3>
+
+<h4>链接 (LINK)</h4>
+
+<p>This is <a href="https://www.google.com" title="Google">google</a> inline link.</p>
+
+<p><a href="http://www.baidu.com">No title</a> has no title attribute.</p>
+
+<p>This is <a href="/help">relative</a> link on the same server.</p>
+
+<p>This is <a href="http://another-example.com" title="Example">an example</a> reference-style link.</p>
+
+<h4>强调 (EMPHASIS)</h4>
+
+<p>这是<em>单星号</em></p>
+
+<p>这是<em>单下划线</em></p>
+
+<p><strong>双星号</strong>牛逼一些</p>
+
+<p><strong>双下划线</strong>和上面是一样的</p>
+
+<p>*货真价实被双星号包围的感觉不错吧*</p>
+
+<h4>代码 (CODE)</h4>
+
+<p>Use the <code>printf()</code> function.</p>
+
+<p><code>There is a literal backtick (`) here.</code></p>
+
+<p>A single backtick in a code span: <code>`</code></p>
+
+<p>A backtick-delimited string in a code span: <code>`foo`</code></p>
+
+<h4>图片 (IMAGE)</h4>
+
+<p><img src="/assets/themes/twitter/bootstrap/img/glyphicons-halflings.png" title="Img" alt="Alt text" /></p>
+]]></content>
+  </entry>
+  
+</feed>

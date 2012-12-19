@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ldd | My Octopress Blog]]></title>
+  <link href="http://wangwangra.github.com/blog/categories/ldd/atom.xml" rel="self"/>
+  <link href="http://wangwangra.github.com/"/>
+  <updated>2012-12-19T16:10:35+08:00</updated>
+  <id>http://wangwangra.github.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ldd tips]]></title>
+    <link href="http://wangwangra.github.com/blog/2012/12/17/ldd-tips/"/>
+    <updated>2012-12-17T00:00:00+08:00</updated>
+    <id>http://wangwangra.github.com/blog/2012/12/17/ldd-tips</id>
+    <content type="html"><![CDATA[<h3>关于机制和策略(mechanism and policy)</h3>
+
+<blockquote><p>The distinction between mechanism and policy is one of the best ideas
+behind the Unix design. Most programming problems can indeed be split
+into two parts: "what capabilities are to be provided" (the mechanism)
+and "how those capabilities can be used" (the policy). If the two
+issues are addressed by different parts of the program, or even by
+different programs altogether, the software package is much easier to
+develop and to adapt to particular needs.</p></blockquote>
+
+<p>长久以来，我都把这个概念与接口和实现(interface and implementation)混淆在
+一起，傻傻分不清楚。谁谁谁(乔治~康师傅？)说过，如果能把一个概念向你隔壁的
+花朵或者大妈解释清楚，那么你就是真的理解了。好吧，我试试吧：</p>
+
+<p>拿锤子举个例吧，你捡到一个锤子，这就是你的”命运之锤“，你的”机制“，拿来干嘛
+呢？你可以用锤子砸核桃，砸冰箱(老罗？)，或者表演杂技(档部碎大石？)。这就是
+策略。换个角度，锤子提供锤东西的能力可以说是个接口，而具体锤子是用铁做的，
+铜做的，还是用钛合金做的，就是实现。</p>
+
+<h3>关于抢占式(preemptible)和可重入(reentrant)</h3>
+
+<blockquote><p>Finally, in 2.6, kernel code has been made preemptible; this change
+causes even uniprocessor systems to have many of the same concurrency
+issues as multiprocessor systems.</p>
+
+<p>As a result, Linux kernel code, including driver code, must be <em>reentrant</em>
+-- it must be capable of running in more than one context at the same
+time. Data structures must be carefully designed to keep multiple threads
+of execution separate, and the code must take care to access shared data
+in ways that prevent corruption of the data.</p></blockquote>
+
+<h3>关于内核模块编译</h3>
+
+<p>内核使用一套自己的Makefile系统(Kbuild)来生成内核映像和模块二进制文件，
+可能是目前最复杂的makefile系统了吧。makefile 的写法与应用程序的写法也大不相同。
+但是文本配置起来都非常简单(更不用提各种可视化配置界面了)，就几条规则:</p>
+
+<ol>
+<li><p>持久编译进内核映像</p>
+
+<pre><code> obj-y += obj1.o obj2.o
+</code></pre></li>
+<li><p>编译成模块二进制文件(<code>*.ko</code>)</p>
+
+<pre><code> obj-m += obj-m1.o obj-m2.o
+</code></pre></li>
+<li><p>不进行编译</p>
+
+<pre><code> obj-n += obj-n1.o obj-n2.o
+</code></pre></li>
+<li><p>多个目标文件链接成一个</p>
+
+<pre><code> obj-y += abc.o
+ abc-y := a.o b.o c.o
+</code></pre></li>
+<li><p>利用Kconfig定制功能</p>
+
+<pre><code> obj-$(CONFIG_FOO) += foo.o
+</code></pre>
+
+<p> 当运行 <code>make menuconfig</code>或类似的可视化配置界面时，其实就是在配置一个一个
+ 的CONFIG_XXX，正如你所想的，一般来说三种值，y|m|n 。配置好后将在顶层目录
+ 生成 <code>.config</code>文件供后面编译参考。</p></li>
+<li><p>自动切换目录</p>
+
+<pre><code> obj-y += power/
+</code></pre>
+
+<p> 这里加入的不是文件，而是目录，意思是切换到 power/ 目录，并处理其中的
+ Makefile。</p></li>
+</ol>
+
+
+<p>掌握以上六点差不多你就掌握了内核源码中大部分的 Makefile 了，就能随心所欲得
+定制内核功能了。是不是很简单:)</p>
+
+<p>对于源码树外的自己编写的内核模块的话，makefile 会稍许复杂。典型的(节选自
+kernel/Documentation/kbuild/modules.txt):</p>
+
+<pre><code>...
+ifneq ($(KERNELRELEASE),)
+# kbuild part of makefile
+obj-m  := hello.o
+
+else
+# normal makefile
+KDIR ?= /lib/modules/$(shell uname -r)/build
+PWD := $(shell pwd)
+
+default:
+    $(MAKE) -C $(KDIR) M=$(PWD) modules
+
+endif
+</code></pre>
+
+<p>当我们运行<code>make</code>时，这个makefile会被读取两次。第一次，变量 <code>KERNELRELEASE</code>
+还没有设置，所以会执行 else 内的代码块。 <code>KDIR</code>指定内核源码路径，<code>PWD</code>指定
+当前路径，即模块源码路径。我们来简单分析下命令
+<code>$(MAKE) -C $(KDIR) M=$(PWD) modules</code>:</p>
+
+<ol>
+<li><code>$(MAKE)</code>是makefile的系统变量，即<code>make</code>命令。</li>
+<li><code>-C $(KDIR)</code>是<code>make</code>的一个选项，意思是在读取makefile之前，把当前路径切换到
+<code>KDIR</code>下，那么此时载入的makefile就是内核源码顶层目录的Makefile，而不再是模块目录
+下的了。</li>
+<li><code>M=$(PWD)</code>其实是内核源码主 Makefile 里的一个对外部模块的支持选项
+(External module support).<code>make M=dir modules</code>的功能就是联编 dir 目录下的
+所有模块。</li>
+</ol>
+
+
+<p>所以，合起来看，这条命令就是切换至内核源码顶层目录，载入主 Makefile，联编模块
+目录下的所有指定模块。这个联编过程即，第二次载入模块 Makefile，<em>注意</em>，
+主 Makefile 内定义了 KERNELRELEASE 变量，这次就执行<code>obj-m += hello.o</code>命令了。
+你看，不就是源码树内的模块编译规则吗？</p>
+
+<p>今天在 Hacker News 上看到一篇写 twitter，facebook，youtube 的 humble Beginnings
+<a href="http://blog.alexmaccaw.com/humble-beginnings">[h]</a>，挺有意思的(youtube 最初居然是个约炮网站。。现在微信拍马赶上。。呃扯远了)。
+最后一节提到：</p>
+
+<blockquote><p>Simple in terms of product mind you, not necessarily technically.</p>
+
+<p>......</p>
+
+<p>Technical difficulties though, were in service of product simplicity.</p></blockquote>
+
+<p>Kbuild 系统这么复杂，但是其目的不正是为了给我们提供简便而又强大的功能吗？</p>
+
+<p>最后两段话讲了创业的事，我文笔拙劣就不翻译了：</p>
+
+<blockquote><p>The key is to find a market with a small and easily definable problem to
+solve, but also a market large enough to accomodate further growth and
+disruption. Solving a specific problem will get your foot in the door, giving
+you leverage to throw it right open later down the line.</p>
+
+<p>Being flexible is much more important than knowing the end game. Just come
+in, build something small, and grow it one step at a time. Everything starts
+from humble beginnings.</p></blockquote>
+
+<hr />
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,1 +1,848 @@
-My Octopress Page is coming soon &hellip;
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="
+">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://wangwangra.github.com/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:wangwangra.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/19/new/">New</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-19T16:06:00+08:00" pubdate data-updated="true">Dec 19<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/17/linux-tips/">Linux Tips</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-17T00:00:00+08:00" pubdate data-updated="true">Dec 17<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li><p>以16进制方式查看文件</p>
+
+<pre><code>  xxd &lt;file&gt;
+</code></pre>
+
+<p>  也可以用vim查看</p>
+
+<pre><code>  vim -b &lt;file&gt;
+</code></pre>
+
+<p>  转换为16进制</p>
+
+<pre><code>  :%!xxd
+</code></pre>
+
+<p>  最后再转换回来</p>
+
+<pre><code>  :%!xxd -r
+</code></pre></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/17/ldd-tips/">Ldd Tips</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-17T00:00:00+08:00" pubdate data-updated="true">Dec 17<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>关于机制和策略(mechanism and policy)</h3>
+
+<blockquote><p>The distinction between mechanism and policy is one of the best ideas
+behind the Unix design. Most programming problems can indeed be split
+into two parts: &#8220;what capabilities are to be provided&#8221; (the mechanism)
+and &#8220;how those capabilities can be used&#8221; (the policy). If the two
+issues are addressed by different parts of the program, or even by
+different programs altogether, the software package is much easier to
+develop and to adapt to particular needs.</p></blockquote>
+
+<p>长久以来，我都把这个概念与接口和实现(interface and implementation)混淆在
+一起，傻傻分不清楚。谁谁谁(乔治~康师傅？)说过，如果能把一个概念向你隔壁的
+花朵或者大妈解释清楚，那么你就是真的理解了。好吧，我试试吧：</p>
+
+<p>拿锤子举个例吧，你捡到一个锤子，这就是你的”命运之锤“，你的”机制“，拿来干嘛
+呢？你可以用锤子砸核桃，砸冰箱(老罗？)，或者表演杂技(档部碎大石？)。这就是
+策略。换个角度，锤子提供锤东西的能力可以说是个接口，而具体锤子是用铁做的，
+铜做的，还是用钛合金做的，就是实现。</p>
+
+<h3>关于抢占式(preemptible)和可重入(reentrant)</h3>
+
+<blockquote><p>Finally, in 2.6, kernel code has been made preemptible; this change
+causes even uniprocessor systems to have many of the same concurrency
+issues as multiprocessor systems.</p>
+
+<p>As a result, Linux kernel code, including driver code, must be <em>reentrant</em>
+&#8211; it must be capable of running in more than one context at the same
+time. Data structures must be carefully designed to keep multiple threads
+of execution separate, and the code must take care to access shared data
+in ways that prevent corruption of the data.</p></blockquote>
+
+<h3>关于内核模块编译</h3>
+
+<p>内核使用一套自己的Makefile系统(Kbuild)来生成内核映像和模块二进制文件，
+可能是目前最复杂的makefile系统了吧。makefile 的写法与应用程序的写法也大不相同。
+但是文本配置起来都非常简单(更不用提各种可视化配置界面了)，就几条规则:</p>
+
+<ol>
+<li><p>持久编译进内核映像</p>
+
+<pre><code> obj-y += obj1.o obj2.o
+</code></pre></li>
+<li><p>编译成模块二进制文件(<code>*.ko</code>)</p>
+
+<pre><code> obj-m += obj-m1.o obj-m2.o
+</code></pre></li>
+<li><p>不进行编译</p>
+
+<pre><code> obj-n += obj-n1.o obj-n2.o
+</code></pre></li>
+<li><p>多个目标文件链接成一个</p>
+
+<pre><code> obj-y += abc.o
+ abc-y := a.o b.o c.o
+</code></pre></li>
+<li><p>利用Kconfig定制功能</p>
+
+<pre><code> obj-$(CONFIG_FOO) += foo.o
+</code></pre>
+
+<p> 当运行 <code>make menuconfig</code>或类似的可视化配置界面时，其实就是在配置一个一个
+ 的CONFIG_XXX，正如你所想的，一般来说三种值，y|m|n 。配置好后将在顶层目录
+ 生成 <code>.config</code>文件供后面编译参考。</p></li>
+<li><p>自动切换目录</p>
+
+<pre><code> obj-y += power/
+</code></pre>
+
+<p> 这里加入的不是文件，而是目录，意思是切换到 power/ 目录，并处理其中的
+ Makefile。</p></li>
+</ol>
+
+
+<p>掌握以上六点差不多你就掌握了内核源码中大部分的 Makefile 了，就能随心所欲得
+定制内核功能了。是不是很简单:)</p>
+
+<p>对于源码树外的自己编写的内核模块的话，makefile 会稍许复杂。典型的(节选自
+kernel/Documentation/kbuild/modules.txt):</p>
+
+<pre><code>...
+ifneq ($(KERNELRELEASE),)
+# kbuild part of makefile
+obj-m  := hello.o
+
+else
+# normal makefile
+KDIR ?= /lib/modules/$(shell uname -r)/build
+PWD := $(shell pwd)
+
+default:
+    $(MAKE) -C $(KDIR) M=$(PWD) modules
+
+endif
+</code></pre>
+
+<p>当我们运行<code>make</code>时，这个makefile会被读取两次。第一次，变量 <code>KERNELRELEASE</code>
+还没有设置，所以会执行 else 内的代码块。 <code>KDIR</code>指定内核源码路径，<code>PWD</code>指定
+当前路径，即模块源码路径。我们来简单分析下命令
+<code>$(MAKE) -C $(KDIR) M=$(PWD) modules</code>:</p>
+
+<ol>
+<li><code>$(MAKE)</code>是makefile的系统变量，即<code>make</code>命令。</li>
+<li><code>-C $(KDIR)</code>是<code>make</code>的一个选项，意思是在读取makefile之前，把当前路径切换到
+<code>KDIR</code>下，那么此时载入的makefile就是内核源码顶层目录的Makefile，而不再是模块目录
+下的了。</li>
+<li><code>M=$(PWD)</code>其实是内核源码主 Makefile 里的一个对外部模块的支持选项
+(External module support).<code>make M=dir modules</code>的功能就是联编 dir 目录下的
+所有模块。</li>
+</ol>
+
+
+<p>所以，合起来看，这条命令就是切换至内核源码顶层目录，载入主 Makefile，联编模块
+目录下的所有指定模块。这个联编过程即，第二次载入模块 Makefile，<em>注意</em>，
+主 Makefile 内定义了 KERNELRELEASE 变量，这次就执行<code>obj-m += hello.o</code>命令了。
+你看，不就是源码树内的模块编译规则吗？</p>
+
+<p>今天在 Hacker News 上看到一篇写 twitter，facebook，youtube 的 humble Beginnings
+<a href="http://blog.alexmaccaw.com/humble-beginnings">[h]</a>，挺有意思的(youtube 最初居然是个约炮网站。。现在微信拍马赶上。。呃扯远了)。
+最后一节提到：</p>
+
+<blockquote><p>Simple in terms of product mind you, not necessarily technically.</p>
+
+<p>&#8230;&#8230;</p>
+
+<p>Technical difficulties though, were in service of product simplicity.</p></blockquote>
+
+<p>Kbuild 系统这么复杂，但是其目的不正是为了给我们提供简便而又强大的功能吗？</p>
+
+<p>最后两段话讲了创业的事，我文笔拙劣就不翻译了：</p>
+
+<blockquote><p>The key is to find a market with a small and easily definable problem to
+solve, but also a market large enough to accomodate further growth and
+disruption. Solving a specific problem will get your foot in the door, giving
+you leverage to throw it right open later down the line.</p>
+
+<p>Being flexible is much more important than knowing the end game. Just come
+in, build something small, and grow it one step at a time. Everything starts
+from humble beginnings.</p></blockquote>
+
+<hr />
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/16/llvm-1/">Llvm [1]</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-16T00:00:00+08:00" pubdate data-updated="true">Dec 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>llvm bundle outline <a href="http://llvm.org/docs/GettingStarted.html#llvm-tools">[llvm1]</a></p>
+
+<ul>
+<li><p>bugpoint</p>
+
+<pre><code>  bugpoint is used to debug optimization passes or code generation 
+  backends by narrowing down the given test case to the minimum number
+  of passes and/or instructions that still cause a problem, whether it 
+  is a crash or miscompilation. 
+</code></pre></li>
+<li><p>llvm-ar</p>
+
+<pre><code>  The archiver produces an archive containing the given LLVM bitcode 
+  files, optionally with an index for faster lookup.
+</code></pre></li>
+<li><p>llvm-as</p>
+
+<pre><code>  The assembler transforms the human readable LLVM assembly to LLVM 
+  bitcode.
+</code></pre></li>
+<li><p>llvm-dis</p>
+
+<pre><code>  The disassembler transforms the LLVM bitcode to human readable LLVM 
+  assembly.
+</code></pre></li>
+<li><p>llvm-link</p>
+
+<pre><code>  llvm-link, not surprisingly, links multiple LLVM modules into a 
+  single program.
+</code></pre></li>
+<li><p>lli</p>
+
+<pre><code>  lli is the LLVM interpreter, which can directly execute LLVM bitcode 
+  (although very slowly...). For architectures that support it 
+  (currently x86, Sparc, and PowerPC), by default, lli will function as 
+  a Just-In-Time compiler (if the functionality was compiled in), and 
+  will execute the code much faster than the interpreter.
+</code></pre></li>
+<li><p>llc</p>
+
+<pre><code>  llc is the LLVM backend compiler, which translates LLVM bitcode to a 
+  native code assembly file or to C code (with the -march=c option).
+</code></pre></li>
+<li><p>opt</p>
+
+<pre><code>  opt reads LLVM bitcode, applies a series of LLVM to LLVM 
+  transformations (which are specified on the command line), and then 
+  outputs the resultant bitcode. The ‘opt -help‘ command is a good way 
+  to get a list of the program transformations available in LLVM.
+
+  opt can also be used to run a specific analysis on an input LLVM 
+  bitcode file and print out the results. It is primarily useful for 
+  debugging analyses, or familiarizing yourself with what an analysis 
+  does.
+</code></pre></li>
+<li><p>llvm-config</p>
+
+<pre><code>  llvm-config can print the compiler flags, linker flags and object 
+  libraries needed to link against llvm.
+</code></pre></li>
+</ul>
+
+
+<hr />
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/15/mail-client-project-1/">Mail Client [1]</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-15T00:00:00+08:00" pubdate data-updated="true">Dec 15<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h1>resources</h1>
+
+<ul>
+<li><p>YAML <a href="http://www.yaml.org/spec/1.2/spec.html">[y]</a></p>
+
+<p>  Pass the neccessary info like email address, password in an easy manner.</p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/09/git-tips/">Git Tips</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-09T00:00:00+08:00" pubdate data-updated="true">Dec 9<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li><p>modify the <em>last</em> commit</p>
+
+<pre><code>  git commit --amend
+</code></pre></li>
+<li><p>modify the <em>last 5</em> commit</p>
+
+<pre><code>  git rebase -i HEAD~5
+</code></pre>
+
+<p>  modify <code>pick</code> of which you want to modify to <code>edit</code> and :wq to exit.</p>
+
+<pre><code>  git log
+</code></pre>
+
+<p>  you can find you are at the commit which you <code>edit</code>, do as modify the
+  <em>last</em> commit and</p>
+
+<pre><code>  git commit --amend
+</code></pre>
+
+<p>  back by</p>
+
+<pre><code>  git rebase --continue
+</code></pre></li>
+<li><p>undo all the works, back to latest commit state</p>
+
+<pre><code>  git reset --hard HEAD
+</code></pre></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/03/kung-fu-website/">Kung Fu Website</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-03T00:00:00+08:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/02/vim-tips/">Vim Tips</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-02T00:00:00+08:00" pubdate data-updated="true">Dec 2<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li><p>back to last cursor position</p>
+
+<pre><code>  ctrl-o
+</code></pre></li>
+<li><p>format the code</p>
+
+<pre><code>  gg=G
+</code></pre></li>
+<li><p>apply vim cmd inside a file</p>
+
+<pre><code>  /* vim: set XXX=XXX: */
+</code></pre></li>
+<li><p>fold</p>
+
+<pre><code>  :set foldmethod=XXX
+</code></pre>
+
+<p>  methods(XXX) usually use &#8216;indent&#8217; or &#8216;marker&#8217;</p>
+
+<p>  cmd:</p>
+
+<ul>
+<li>zc fold</li>
+<li>zC fold all</li>
+<li>zo unfold</li>
+<li>zO unfold all</li>
+<li>[z goto current begin</li>
+<li>]z goto current end</li>
+<li>zj goto next fold</li>
+<li>zk goto last fold</li>
+</ul>
+</li>
+<li><p>undo</p>
+
+<pre><code>  u
+</code></pre></li>
+<li><p>redo</p>
+
+<pre><code>  ctrl-r
+</code></pre></li>
+<li><p>in C file goto header file</p>
+
+<pre><code>  gf
+</code></pre>
+
+<p>  If you encounter &#8220;在路径中找不到头文件$#$#%@~&#8221;, add your path:</p>
+
+<pre><code>  set path+=/your/path/1,/your/path/2
+</code></pre>
+
+<p>  <em>WARNING</em>, your path is added in the tail, after default path <code>.</code> and
+  <code>/usr/include</code>. That means system search file from <code>.</code> first, then
+  <code>/usr/include</code>, finally your path. If sequence matters, do this:</p>
+
+<pre><code>  set path=.,/your/path/1,/your/path/2,/usr/include
+</code></pre></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/02/something-original-from-twitter-bootstrap/">Something Original From Twitter Bootstrap</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-02T00:00:00+08:00" pubdate data-updated="true">Dec 2<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I clone <a href="http://jekyllbootstrap.com" title="jekyll bootstrap">plusjade&#8217;s jekyll-bootstrap</a> to setup my <a href="http://wangwangwar.github.com" title="wangwangwar@github">blog@github</a>. I want
+to make the pages more charming and learn a little CSS btw. Plusjade&#8217;s
+jekyll-bootstrap embeded twitter&#8217;s bootstrap but out-of-dated. So I clone it
+from <a href="http://twitter.github.com/bootstrap" title="twitter/bootstrap">twitter/bootstrap@github</a>. Then it requires node.js, I jump to
+<a href="http://nodejs.org" title="node.js">node.js</a> and search <a href="https://en.wikipedia.org/wiki/Nodejs" title="nodejs@wiki">@wikipedia</a> btw. OMG, I get interested in Google&#8217;s
+<a href="https://en.wikipedia.org/wiki/V8_(JavaScript_engine)" title="V8 JS engine">V8 JS engine</a> and <a href="https://en.wikipedia.org/wiki/Push_technology" title="push tech">push technology</a>:)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/02/software-is-mathematics/">Software Is Mathematics</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-02T00:00:00+08:00" pubdate data-updated="true">Dec 2<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>mathematics is a language</li>
+<li>languages are written with symbols</li>
+<li>symbols are abstract ideas, more abstract more powerful</li>
+<li>symbols need not be watched by humans to have meanings</li>
+<li>computaions don&#8217;t process electrons, computations process symbols</li>
+<li>bits must be organized into syntax</li>
+<li>the mathematical language my also be given some non mathematical interpretations</li>
+<li>algorithms are manipulations of the uninterpreted symbols and their syntactic arrangement</li>
+<li>algorithms and computations are not physical entities but contents</li>
+<li>mathematicians have discovered a special category of algorithms called
+universal algorithms, such as <em>universal Turing machine</em>, <em>instruction cycle</em>,
+<em>Horn clauses</em>, <em>normal order B-reduction</em></li>
+<li>a program is data</li>
+<li>most modern general purpose computers are built according to a common
+engineering pattern called the <em>stored program computer architecture</em></li>
+<li>we say software is mathematics because the execution of all computer programs
+is the execution of a universal mathematical algorithm. What the computer
+does is a mathematical computation according to a mathematical algorithm.</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/19/new/">new</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/linux-tips/">linux tips</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/ldd-tips/">ldd tips</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/16/llvm-1/">llvm [1]</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/15/mail-client-project-1/">mail client [1]</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

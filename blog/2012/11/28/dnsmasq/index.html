@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>dnsmasq - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="dnsmasq resources">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://wangwangra.github.com/blog/2012/11/28/dnsmasq/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:wangwangra.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Dnsmasq</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-28T00:00:00+08:00" pubdate data-updated="true">Nov 28<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><ol>
+<li><p>Close system&#8217;s NetworkManager built-in dnsmasq, prepare to run stand-alone dnsmasq. <a href="http://sokratisg.wordpress.com/2012/03/31/ubuntu-precise-12-04-get-rid-of-nms-dnsmasq-and-setup-your-own">1</a></p>
+
+<pre><code> vi /etc/NetworkManger/NetworkManager.conf
+ #dns=dnsmasq
+ restart network-manager
+</code></pre></li>
+<li><p>Install complete dnsmasq.</p>
+
+<pre><code> apt-get install dnsmasq
+</code></pre></li>
+<li><p>Configure dnsmasq, some necessary options:</p>
+
+<pre><code> vi /etc/dnsmasq.conf
+ # get killgfw.conf later
+ domain-needed
+ resolv-file=/etc/dnsmasq.d/killgfw.conf
+ cache-size=10000
+ strict-order
+ no-resolv
+ no-poll
+</code></pre></li>
+<li><p>Download killgfw.conf, you can modify as you like. <a href="https://code.google.com/p/autoddvpn/wiki/DNSMasq">2</a> <a href="http://ninehills.info/2011/12/17/dnsmasq.html">3</a></p>
+
+<pre><code> mkdir -pv /etc/dnsmasq.d 
+ wget https://smarthosts.googlecode.com/svn/trunk/dnsmasq.conf \
+     -O /etc/dnsmasq.d/killgfw.conf
+</code></pre></li>
+<li><p>Start dnsmasq service. <a href="https://code.google.com/p/autoddvpn/wiki/DNSMasq">s</a></p>
+
+<pre><code> service dnsmasq start
+</code></pre></li>
+<li><p>Disable pppoe&#8217;s dns function. <a href="http://linux.die.net/man/5/pppoe.conf">d</a></p>
+
+<p> open pppoe&#8217;s configure file</p>
+
+<pre><code> vi /etc/ppp/pppoe.conf
+</code></pre>
+
+<p> modify DNS type</p>
+
+<pre><code> DNSTYPE=NOCHANGE
+</code></pre>
+
+<p> and delete system&#8217;s resolv.conf</p>
+
+<pre><code> rm /etc/resolv.conf
+</code></pre></li>
+</ol>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-28T00:00:00+08:00" pubdate data-updated="true">Nov 28<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/tools/'>tools</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://wangwangra.github.com/blog/2012/11/28/dnsmasq/" data-via="" data-counturl="http://wangwangra.github.com/blog/2012/11/28/dnsmasq/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/11/26/how-to-become-a-hacker/" title="Previous Post: How To Become A Hacker">&laquo; How To Become A Hacker</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/11/29/linux-boot/" title="Next Post: linux boot">linux boot &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/19/new/">new</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/linux-tips/">linux tips</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/ldd-tips/">ldd tips</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/16/llvm-1/">llvm [1]</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/15/mail-client-project-1/">mail client [1]</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

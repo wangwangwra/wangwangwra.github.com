@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: kernel | My Octopress Blog]]></title>
+  <link href="http://wangwangra.github.com/blog/categories/kernel/atom.xml" rel="self"/>
+  <link href="http://wangwangra.github.com/"/>
+  <updated>2012-12-19T16:10:35+08:00</updated>
+  <id>http://wangwangra.github.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[linux boot]]></title>
+    <link href="http://wangwangra.github.com/blog/2012/11/29/linux-boot/"/>
+    <updated>2012-11-29T00:00:00+08:00</updated>
+    <id>http://wangwangra.github.com/blog/2012/11/29/linux-boot</id>
+    <content type="html"><![CDATA[<ul>
+<li>vmlinux <a href="https://en.wikipedia.org/wiki/Vmlinux" title="wiki">v</a></li>
+<li>vmlinuz
+
+<ul>
+<li>zImage</li>
+<li>bzImage <a href="https://en.wikipedia.org/wiki/File:Anatomy-of-bzimage.png" title="wiki">b</a></li>
+</ul>
+</li>
+<li>system.map <a href="https://en.wikipedia.org/wiki/System.map" title="wiki">s</a></li>
+<li>initrd <a href="https://en.wikipedia.org/wiki/Initrd" title="wiki">i1</a> <a href="https://www.ibm.com/developerworks/cn/linux/l-k26initrd" title="ibm">i2</a> <a href="https://www.ibm.com/developerworks/cn/linux/l-initrd.html" title="ibm">i3</a></li>
+<li>bootloader
+
+<ul>
+<li>GRUB</li>
+<li>LILO</li>
+</ul>
+</li>
+<li>Linux startup process <a href="https://en.wikipedia.org/wiki/Linux_startup_process" title="wiki">l</a>
+
+<ul>
+<li>BIOS</li>
+<li>boot loader
+
+<ul>
+<li>GRUB</li>
+<li>LILO</li>
+</ul>
+</li>
+<li>kernel
+
+<ul>
+<li>kernel loading stage</li>
+<li>kernel startup stage</li>
+</ul>
+</li>
+<li>init process</li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

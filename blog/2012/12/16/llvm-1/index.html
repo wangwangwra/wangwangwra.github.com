@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>llvm [1] - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="llvm outline">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://wangwangra.github.com/blog/2012/12/16/llvm-1/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:wangwangra.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Llvm [1]</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-16T00:00:00+08:00" pubdate data-updated="true">Dec 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>llvm bundle outline <a href="http://llvm.org/docs/GettingStarted.html#llvm-tools">[llvm1]</a></p>
+
+<ul>
+<li><p>bugpoint</p>
+
+<pre><code>  bugpoint is used to debug optimization passes or code generation 
+  backends by narrowing down the given test case to the minimum number
+  of passes and/or instructions that still cause a problem, whether it 
+  is a crash or miscompilation. 
+</code></pre></li>
+<li><p>llvm-ar</p>
+
+<pre><code>  The archiver produces an archive containing the given LLVM bitcode 
+  files, optionally with an index for faster lookup.
+</code></pre></li>
+<li><p>llvm-as</p>
+
+<pre><code>  The assembler transforms the human readable LLVM assembly to LLVM 
+  bitcode.
+</code></pre></li>
+<li><p>llvm-dis</p>
+
+<pre><code>  The disassembler transforms the LLVM bitcode to human readable LLVM 
+  assembly.
+</code></pre></li>
+<li><p>llvm-link</p>
+
+<pre><code>  llvm-link, not surprisingly, links multiple LLVM modules into a 
+  single program.
+</code></pre></li>
+<li><p>lli</p>
+
+<pre><code>  lli is the LLVM interpreter, which can directly execute LLVM bitcode 
+  (although very slowly...). For architectures that support it 
+  (currently x86, Sparc, and PowerPC), by default, lli will function as 
+  a Just-In-Time compiler (if the functionality was compiled in), and 
+  will execute the code much faster than the interpreter.
+</code></pre></li>
+<li><p>llc</p>
+
+<pre><code>  llc is the LLVM backend compiler, which translates LLVM bitcode to a 
+  native code assembly file or to C code (with the -march=c option).
+</code></pre></li>
+<li><p>opt</p>
+
+<pre><code>  opt reads LLVM bitcode, applies a series of LLVM to LLVM 
+  transformations (which are specified on the command line), and then 
+  outputs the resultant bitcode. The ‘opt -help‘ command is a good way 
+  to get a list of the program transformations available in LLVM.
+
+  opt can also be used to run a specific analysis on an input LLVM 
+  bitcode file and print out the results. It is primarily useful for 
+  debugging analyses, or familiarizing yourself with what an analysis 
+  does.
+</code></pre></li>
+<li><p>llvm-config</p>
+
+<pre><code>  llvm-config can print the compiler flags, linker flags and object 
+  libraries needed to link against llvm.
+</code></pre></li>
+</ul>
+
+
+<hr />
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-16T00:00:00+08:00" pubdate data-updated="true">Dec 16<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/llvm/'>llvm</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://wangwangra.github.com/blog/2012/12/16/llvm-1/" data-via="" data-counturl="http://wangwangra.github.com/blog/2012/12/16/llvm-1/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/12/15/mail-client-project-1/" title="Previous Post: mail client [1]">&laquo; mail client [1]</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/12/17/ldd-tips/" title="Next Post: ldd tips">ldd tips &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/19/new/">new</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/linux-tips/">linux tips</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/ldd-tips/">ldd tips</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/16/llvm-1/">llvm [1]</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/15/mail-client-project-1/">mail client [1]</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

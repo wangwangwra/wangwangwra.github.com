@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>linux tips - My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>linux tips - T_T</title>
+  <meta name="author" content="wang">
 
   
-  <meta name="description" content="
-以16进制方式查看文件 xxd &lt;file&gt; 也可以用vim查看 vim -b &lt;file&gt; 转换为16进制 :%!xxd 最后再转换回来 :%!xxd -r ">
+  <meta name="description" content="以16进制方式查看文件 xxd &lt;file&gt; 也可以用vim查看 vim -b &lt;file&gt; 转换为16进制 :%!xxd 最后再转换回来 :%!xxd -r 用 sed 删除文件中特定行 删除第三行： sed -i '3d' file 删除以 junk 开头的行： sed &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,13 +18,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://wangwangra.github.com/blog/2012/12/17/linux-tips/">
+  <link rel="canonical" href="http://wangwangwra.github.com/blog/2012/12/17/linux-tips/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="T_T" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -36,9 +35,9 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
+  <h1><a href="/">T_T</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>writing like a hacker</h2>
   
 </hgroup>
 
@@ -50,7 +49,7 @@
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:wangwangra.github.com" />
+    <input type="hidden" name="q" value="site:wangwangwra.github.com" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -91,28 +90,42 @@
   </header>
 
 
-<div class="entry-content"><ul>
-<li><p>以16进制方式查看文件</p>
+<div class="entry-content"><h3>以16进制方式查看文件</h3>
 
-<pre><code>  xxd &lt;file&gt;
+<pre><code>xxd &lt;file&gt;
 </code></pre>
 
-<p>  也可以用vim查看</p>
+<p>也可以用vim查看</p>
 
-<pre><code>  vim -b &lt;file&gt;
+<pre><code>vim -b &lt;file&gt;
 </code></pre>
 
-<p>  转换为16进制</p>
+<p>转换为16进制</p>
 
-<pre><code>  :%!xxd
+<pre><code>:%!xxd
 </code></pre>
 
-<p>  最后再转换回来</p>
+<p>最后再转换回来</p>
 
-<pre><code>  :%!xxd -r
-</code></pre></li>
-</ul>
+<pre><code>:%!xxd -r
+</code></pre>
 
+<h3>用 sed 删除文件中特定行</h3>
+
+<p>删除第三行：</p>
+
+<pre><code>sed -i '3d' file
+</code></pre>
+
+<p>删除以 junk 开头的行：</p>
+
+<pre><code>sed -i '/^junk/d' file
+</code></pre>
+
+<p>删除包含 junk 的行</p>
+
+<pre><code>sed -i '/junk/d' file
+</code></pre>
 </div>
 
 
@@ -121,7 +134,7 @@
       
   
 
-<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+<span class="byline author vcard">Posted by <span class="fn">wang</span></span>
 
       
 
@@ -148,8 +161,6 @@
     </p>
     
       <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://wangwangra.github.com/blog/2012/12/17/linux-tips/" data-via="" data-counturl="http://wangwangra.github.com/blog/2012/12/17/linux-tips/" >Tweet</a>
   
   
   
@@ -198,6 +209,35 @@
   </ul>
 </section>
 
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/wangwangwar">@wangwangwar</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'wangwangwar',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
 
 
 
@@ -210,7 +250,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Your Name -
+  Copyright &copy; 2012 - wang -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
@@ -222,16 +262,6 @@
 
 
 
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 

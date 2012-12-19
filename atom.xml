@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://wangwangra.github.com/atom.xml" rel="self"/>
-  <link href="http://wangwangra.github.com/"/>
-  <updated>2012-12-19T16:10:35+08:00</updated>
-  <id>http://wangwangra.github.com/</id>
+  <title><![CDATA[T_T]]></title>
+  <link href="http://wangwangwra.github.com/atom.xml" rel="self"/>
+  <link href="http://wangwangwra.github.com/"/>
+  <updated>2012-12-19T17:40:37+08:00</updated>
+  <id>http://wangwangwra.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[wang]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,48 +15,62 @@
   
   <entry>
     <title type="html"><![CDATA[new]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/12/19/new/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/12/19/new/"/>
     <updated>2012-12-19T16:06:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/12/19/new</id>
+    <id>http://wangwangwra.github.com/blog/2012/12/19/new</id>
     <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[linux tips]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/12/17/linux-tips/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/12/17/linux-tips/"/>
     <updated>2012-12-17T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/12/17/linux-tips</id>
-    <content type="html"><![CDATA[<ul>
-<li><p>以16进制方式查看文件</p>
+    <id>http://wangwangwra.github.com/blog/2012/12/17/linux-tips</id>
+    <content type="html"><![CDATA[<h3>以16进制方式查看文件</h3>
 
-<pre><code>  xxd &lt;file&gt;
+<pre><code>xxd &lt;file&gt;
 </code></pre>
 
-<p>  也可以用vim查看</p>
+<p>也可以用vim查看</p>
 
-<pre><code>  vim -b &lt;file&gt;
+<pre><code>vim -b &lt;file&gt;
 </code></pre>
 
-<p>  转换为16进制</p>
+<p>转换为16进制</p>
 
-<pre><code>  :%!xxd
+<pre><code>:%!xxd
 </code></pre>
 
-<p>  最后再转换回来</p>
+<p>最后再转换回来</p>
 
-<pre><code>  :%!xxd -r
-</code></pre></li>
-</ul>
+<pre><code>:%!xxd -r
+</code></pre>
 
+<h3>用 sed 删除文件中特定行</h3>
+
+<p>删除第三行：</p>
+
+<pre><code>sed -i '3d' file
+</code></pre>
+
+<p>删除以 junk 开头的行：</p>
+
+<pre><code>sed -i '/^junk/d' file
+</code></pre>
+
+<p>删除包含 junk 的行</p>
+
+<pre><code>sed -i '/junk/d' file
+</code></pre>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[ldd tips]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/12/17/ldd-tips/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/12/17/ldd-tips/"/>
     <updated>2012-12-17T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/12/17/ldd-tips</id>
+    <id>http://wangwangwra.github.com/blog/2012/12/17/ldd-tips</id>
     <content type="html"><![CDATA[<h3>关于机制和策略(mechanism and policy)</h3>
 
 <blockquote><p>The distinction between mechanism and policy is one of the best ideas
@@ -202,71 +216,67 @@ from humble beginnings.</p></blockquote>
   
   <entry>
     <title type="html"><![CDATA[llvm [1]]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/12/16/llvm-1/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/12/16/llvm-1/"/>
     <updated>2012-12-16T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/12/16/llvm-1</id>
+    <id>http://wangwangwra.github.com/blog/2012/12/16/llvm-1</id>
     <content type="html"><![CDATA[<p>llvm bundle outline <a href="http://llvm.org/docs/GettingStarted.html#llvm-tools">[llvm1]</a></p>
 
-<ul>
-<li><p>bugpoint</p>
+<h3>bugpoint</h3>
 
-<pre><code>  bugpoint is used to debug optimization passes or code generation 
-  backends by narrowing down the given test case to the minimum number
-  of passes and/or instructions that still cause a problem, whether it 
-  is a crash or miscompilation. 
-</code></pre></li>
-<li><p>llvm-ar</p>
+<blockquote><p>bugpoint is used to debug optimization passes or code generation
+backends by narrowing down the given test case to the minimum number
+of passes and/or instructions that still cause a problem, whether it
+is a crash or miscompilation.</p></blockquote>
 
-<pre><code>  The archiver produces an archive containing the given LLVM bitcode 
-  files, optionally with an index for faster lookup.
-</code></pre></li>
-<li><p>llvm-as</p>
+<h3>llvm-ar</h3>
 
-<pre><code>  The assembler transforms the human readable LLVM assembly to LLVM 
-  bitcode.
-</code></pre></li>
-<li><p>llvm-dis</p>
+<blockquote><p>The archiver produces an archive containing the given LLVM bitcode
+files, optionally with an index for faster lookup.</p></blockquote>
 
-<pre><code>  The disassembler transforms the LLVM bitcode to human readable LLVM 
-  assembly.
-</code></pre></li>
-<li><p>llvm-link</p>
+<h3>llvm-as</h3>
 
-<pre><code>  llvm-link, not surprisingly, links multiple LLVM modules into a 
-  single program.
-</code></pre></li>
-<li><p>lli</p>
+<blockquote><p>The assembler transforms the human readable LLVM assembly to LLVM
+bitcode.</p></blockquote>
 
-<pre><code>  lli is the LLVM interpreter, which can directly execute LLVM bitcode 
-  (although very slowly...). For architectures that support it 
-  (currently x86, Sparc, and PowerPC), by default, lli will function as 
-  a Just-In-Time compiler (if the functionality was compiled in), and 
-  will execute the code much faster than the interpreter.
-</code></pre></li>
-<li><p>llc</p>
+<h3>llvm-dis</h3>
 
-<pre><code>  llc is the LLVM backend compiler, which translates LLVM bitcode to a 
-  native code assembly file or to C code (with the -march=c option).
-</code></pre></li>
-<li><p>opt</p>
+<blockquote><p>The disassembler transforms the LLVM bitcode to human readable LLVM
+assembly.</p></blockquote>
 
-<pre><code>  opt reads LLVM bitcode, applies a series of LLVM to LLVM 
-  transformations (which are specified on the command line), and then 
-  outputs the resultant bitcode. The ‘opt -help‘ command is a good way 
-  to get a list of the program transformations available in LLVM.
+<h3>llvm-link</h3>
 
-  opt can also be used to run a specific analysis on an input LLVM 
-  bitcode file and print out the results. It is primarily useful for 
-  debugging analyses, or familiarizing yourself with what an analysis 
-  does.
-</code></pre></li>
-<li><p>llvm-config</p>
+<blockquote><p>llvm-link, not surprisingly, links multiple LLVM modules into a
+single program.</p></blockquote>
 
-<pre><code>  llvm-config can print the compiler flags, linker flags and object 
-  libraries needed to link against llvm.
-</code></pre></li>
-</ul>
+<h3>lli</h3>
 
+<blockquote><p>lli is the LLVM interpreter, which can directly execute LLVM bitcode
+(although very slowly&#8230;). For architectures that support it
+(currently x86, Sparc, and PowerPC), by default, lli will function as
+a Just-In-Time compiler (if the functionality was compiled in), and
+will execute the code much faster than the interpreter.</p></blockquote>
+
+<h3>llc</h3>
+
+<blockquote><p>llc is the LLVM backend compiler, which translates LLVM bitcode to a
+native code assembly file or to C code (with the -march=c option).</p></blockquote>
+
+<h3>opt</h3>
+
+<blockquote><p>opt reads LLVM bitcode, applies a series of LLVM to LLVM
+transformations (which are specified on the command line), and then
+outputs the resultant bitcode. The ‘opt -help‘ command is a good way
+to get a list of the program transformations available in LLVM.</p>
+
+<p>opt can also be used to run a specific analysis on an input LLVM
+bitcode file and print out the results. It is primarily useful for
+debugging analyses, or familiarizing yourself with what an analysis
+does.</p></blockquote>
+
+<h3>llvm-config</h3>
+
+<blockquote><p>llvm-config can print the compiler flags, linker flags and object
+ libraries needed to link against llvm.</p></blockquote>
 
 <hr />
 ]]></content>
@@ -274,9 +284,9 @@ from humble beginnings.</p></blockquote>
   
   <entry>
     <title type="html"><![CDATA[mail client [1]]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/12/15/mail-client-project-1/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/12/15/mail-client-project-1/"/>
     <updated>2012-12-15T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/12/15/mail-client-project-1</id>
+    <id>http://wangwangwra.github.com/blog/2012/12/15/mail-client-project-1</id>
     <content type="html"><![CDATA[<h1>resources</h1>
 
 <ul>
@@ -290,9 +300,9 @@ from humble beginnings.</p></blockquote>
   
   <entry>
     <title type="html"><![CDATA[git tips]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/12/09/git-tips/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/12/09/git-tips/"/>
     <updated>2012-12-09T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/12/09/git-tips</id>
+    <id>http://wangwangwra.github.com/blog/2012/12/09/git-tips</id>
     <content type="html"><![CDATA[<ul>
 <li><p>modify the <em>last</em> commit</p>
 
@@ -329,18 +339,18 @@ from humble beginnings.</p></blockquote>
   
   <entry>
     <title type="html"><![CDATA[Kung Fu Website]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/12/03/kung-fu-website/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/12/03/kung-fu-website/"/>
     <updated>2012-12-03T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/12/03/kung-fu-website</id>
+    <id>http://wangwangwra.github.com/blog/2012/12/03/kung-fu-website</id>
     <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[vim tips]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/12/02/vim-tips/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/12/02/vim-tips/"/>
     <updated>2012-12-02T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/12/02/vim-tips</id>
+    <id>http://wangwangwra.github.com/blog/2012/12/02/vim-tips</id>
     <content type="html"><![CDATA[<ul>
 <li><p>back to last cursor position</p>
 
@@ -405,9 +415,9 @@ from humble beginnings.</p></blockquote>
   
   <entry>
     <title type="html"><![CDATA[something original from twitter bootstrap]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/12/02/something-original-from-twitter-bootstrap/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/12/02/something-original-from-twitter-bootstrap/"/>
     <updated>2012-12-02T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/12/02/something-original-from-twitter-bootstrap</id>
+    <id>http://wangwangwra.github.com/blog/2012/12/02/something-original-from-twitter-bootstrap</id>
     <content type="html"><![CDATA[<p>I clone <a href="http://jekyllbootstrap.com" title="jekyll bootstrap">plusjade&#8217;s jekyll-bootstrap</a> to setup my <a href="http://wangwangwar.github.com" title="wangwangwar@github">blog@github</a>. I want
 to make the pages more charming and learn a little CSS btw. Plusjade&#8217;s
 jekyll-bootstrap embeded twitter&#8217;s bootstrap but out-of-dated. So I clone it
@@ -419,9 +429,9 @@ from <a href="http://twitter.github.com/bootstrap" title="twitter/bootstrap">twi
   
   <entry>
     <title type="html"><![CDATA[software is mathematics]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/12/02/software-is-mathematics/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/12/02/software-is-mathematics/"/>
     <updated>2012-12-02T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/12/02/software-is-mathematics</id>
+    <id>http://wangwangwra.github.com/blog/2012/12/02/software-is-mathematics</id>
     <content type="html"><![CDATA[<ul>
 <li>mathematics is a language</li>
 <li>languages are written with symbols</li>
@@ -448,9 +458,9 @@ does is a mathematical computation according to a mathematical algorithm.</li>
   
   <entry>
     <title type="html"><![CDATA[css selector]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/11/30/css/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/11/30/css/"/>
     <updated>2012-11-30T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/11/30/css</id>
+    <id>http://wangwangwra.github.com/blog/2012/11/30/css</id>
     <content type="html"><![CDATA[<h3>basic selector</h3>
 
 <ul>
@@ -523,9 +533,9 @@ selection.</p>
   
   <entry>
     <title type="html"><![CDATA[linux boot]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/11/29/linux-boot/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/11/29/linux-boot/"/>
     <updated>2012-11-29T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/11/29/linux-boot</id>
+    <id>http://wangwangwra.github.com/blog/2012/11/29/linux-boot</id>
     <content type="html"><![CDATA[<ul>
 <li>vmlinux <a href="https://en.wikipedia.org/wiki/Vmlinux" title="wiki">v</a></li>
 <li>vmlinuz
@@ -572,9 +582,9 @@ selection.</p>
   
   <entry>
     <title type="html"><![CDATA[dnsmasq]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/11/28/dnsmasq/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/11/28/dnsmasq/"/>
     <updated>2012-11-28T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/11/28/dnsmasq</id>
+    <id>http://wangwangwra.github.com/blog/2012/11/28/dnsmasq</id>
     <content type="html"><![CDATA[<ol>
 <li><p>Close system&#8217;s NetworkManager built-in dnsmasq, prepare to run stand-alone dnsmasq. <a href="http://sokratisg.wordpress.com/2012/03/31/ubuntu-precise-12-04-get-rid-of-nms-dnsmasq-and-setup-your-own">1</a></p>
 
@@ -630,9 +640,9 @@ selection.</p>
   
   <entry>
     <title type="html"><![CDATA[How To Become A Hacker]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/11/26/how-to-become-a-hacker/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/11/26/how-to-become-a-hacker/"/>
     <updated>2012-11-26T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/11/26/how-to-become-a-hacker</id>
+    <id>http://wangwangwra.github.com/blog/2012/11/26/how-to-become-a-hacker</id>
     <content type="html"><![CDATA[<p><a href="mailto:esr@thyrsus.com">Eric Steven Raymond</a></p>
 
 <p>Thyrsus Enterprises</p>
@@ -1258,9 +1268,9 @@ become the master.
   
   <entry>
     <title type="html"><![CDATA[Markdown Tips]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/11/25/markdown/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/11/25/markdown/"/>
     <updated>2012-11-25T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/11/25/markdown</id>
+    <id>http://wangwangwra.github.com/blog/2012/11/25/markdown</id>
     <content type="html"><![CDATA[<p>This is just a test of <em>awesome</em> Jekyll static website generator.</p>
 
 <h3>Block Elements</h3>
@@ -1344,7 +1354,7 @@ This is a blockquote with two paragraphs.</p></blockquote></blockquote>
 
 <p><a href="http://www.baidu.com">No title</a> has no title attribute.</p>
 
-<p>This is <a href="http://wangwangra.github.com/help">relative</a> link on the same server.</p>
+<p>This is <a href="http://wangwangwra.github.com/help">relative</a> link on the same server.</p>
 
 <p>This is <a href="http://another-example.com" title="Example">an example</a> reference-style link.</p>
 
@@ -1372,7 +1382,7 @@ This is a blockquote with two paragraphs.</p></blockquote></blockquote>
 
 <h4>图片 (IMAGE)</h4>
 
-<p><img src="http://wangwangra.github.com/assets/themes/twitter/bootstrap/img/glyphicons-halflings.png" title="Img" alt="Alt text" /></p>
+<p><img src="http://wangwangwra.github.com/assets/themes/twitter/bootstrap/img/glyphicons-halflings.png" title="Img" alt="Alt text" /></p>
 ]]></content>
   </entry>
   

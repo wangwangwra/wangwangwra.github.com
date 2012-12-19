@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>How To Become A Hacker - T_T</title>
+  <title>T_T</title>
   <meta name="author" content="wang">
 
   
-  <meta name="description" content="Eric Steven Raymond Thyrsus Enterprises Copyright © 2001 Eric S. Raymond Revision History Revision 1.42 22 Oct 2010 esr
-Added "Historical note". &hellip;">
+  <meta name="description" content="basic selector tag selector html pages tags. # html &lt;h1&gt;HEADER&lt;/h1&gt; # css h1 { color: red; font-size: 25px; } class selector In html we &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@ Added "Historical note". &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://wangwangwra.github.com/blog/2012/11/26/how-to-become-a-hacker/">
+  <link rel="canonical" href="http://wangwangwra.github.com/blog/page/3/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,12 +62,278 @@ Added "Historical note". &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article class="hentry" role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
     
-      <h1 class="entry-title">How to Become a Hacker</h1>
+      <h1 class="entry-title"><a href="/blog/2012/11/30/css/">Css Selector</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-30T00:00:00+08:00" pubdate data-updated="true">Nov 30<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>basic selector</h3>
+
+<ul>
+<li><p>tag selector</p>
+
+<p>  html pages tags.</p>
+
+<pre><code>  # html
+  &lt;h1&gt;HEADER&lt;/h1&gt;
+  # css
+  h1 { color: red; font-size: 25px; }
+</code></pre></li>
+<li><p>class selector</p>
+
+<p>  In html we can put tags into differet class, like</p>
+
+<pre><code>  # html
+  &lt;p class="red"&gt;class selector 1&lt;/p&gt;
+  &lt;p class="green"&gt;class selector 2&lt;/p&gt;
+  # css
+  .red { color: red; }
+  .green { color: green; }
+</code></pre></li>
+<li><p>ID selector</p>
+
+<p>  It&#8217;s almost same with class selector. The difference is that ID selector
+  can only be used once in a single html pages (class selector can be used
+  more than once).</p>
+
+<pre><code>  # html
+  &lt;p id="one"&gt;ID selector 1&lt;/p&gt;
+  &lt;p id="two"&gt;ID selector 2&lt;/p&gt;
+  # css
+  #one { font-weight: bold; }
+  #two { font-size: 30px; }
+</code></pre></li>
+</ul>
+
+
+<h3>complex selector</h3>
+
+<p>Mix up the three basic seletor, we can get more powerful and more accurate
+selection.</p>
+
+<ul>
+<li><p>intersection selector</p>
+
+<p>  Mix up two basic selector and get their intersection.
+  The first must be <em>tag selector</em> and the second can be <em>class selector</em>
+  or <em>ID selector</em>. Space is not allowed between the two selectors.</p>
+
+<pre><code>  h1, h2, h3, h4, h5, p { color: purple; font-size: 15px; }
+  h2.special { text-decoration: underline; }
+</code></pre></li>
+<li><p>child selector</p>
+
+<pre><code>  # html
+  &lt;body&gt;
+      &lt;p&gt;Nested&lt;span&gt;SPAN&lt;/span&gt;is here.&lt;/p&gt;
+      &lt;span&gt;Outer span&lt;/span&gt;is there.
+  &lt;/body&gt;    
+  # css
+  p span { color: red; }
+  span { color: blue; }
+</code></pre></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/29/linux-boot/">Linux Boot</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-29T00:00:00+08:00" pubdate data-updated="true">Nov 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>vmlinux <a href="https://en.wikipedia.org/wiki/Vmlinux" title="wiki">v</a></li>
+<li>vmlinuz
+
+<ul>
+<li>zImage</li>
+<li>bzImage <a href="https://en.wikipedia.org/wiki/File:Anatomy-of-bzimage.png" title="wiki">b</a></li>
+</ul>
+</li>
+<li>system.map <a href="https://en.wikipedia.org/wiki/System.map" title="wiki">s</a></li>
+<li>initrd <a href="https://en.wikipedia.org/wiki/Initrd" title="wiki">i1</a> <a href="https://www.ibm.com/developerworks/cn/linux/l-k26initrd" title="ibm">i2</a> <a href="https://www.ibm.com/developerworks/cn/linux/l-initrd.html" title="ibm">i3</a></li>
+<li>bootloader
+
+<ul>
+<li>GRUB</li>
+<li>LILO</li>
+</ul>
+</li>
+<li>Linux startup process <a href="https://en.wikipedia.org/wiki/Linux_startup_process" title="wiki">l</a>
+
+<ul>
+<li>BIOS</li>
+<li>boot loader
+
+<ul>
+<li>GRUB</li>
+<li>LILO</li>
+</ul>
+</li>
+<li>kernel
+
+<ul>
+<li>kernel loading stage</li>
+<li>kernel startup stage</li>
+</ul>
+</li>
+<li>init process</li>
+</ul>
+</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/28/dnsmasq/">Dnsmasq</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-28T00:00:00+08:00" pubdate data-updated="true">Nov 28<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ol>
+<li><p>Close system&#8217;s NetworkManager built-in dnsmasq, prepare to run stand-alone dnsmasq. <a href="http://sokratisg.wordpress.com/2012/03/31/ubuntu-precise-12-04-get-rid-of-nms-dnsmasq-and-setup-your-own">1</a></p>
+
+<pre><code> vi /etc/NetworkManger/NetworkManager.conf
+ #dns=dnsmasq
+ restart network-manager
+</code></pre></li>
+<li><p>Install complete dnsmasq.</p>
+
+<pre><code> apt-get install dnsmasq
+</code></pre></li>
+<li><p>Configure dnsmasq, some necessary options:</p>
+
+<pre><code> vi /etc/dnsmasq.conf
+ # get killgfw.conf later
+ domain-needed
+ resolv-file=/etc/dnsmasq.d/killgfw.conf
+ cache-size=10000
+ strict-order
+ no-resolv
+ no-poll
+</code></pre></li>
+<li><p>Download killgfw.conf, you can modify as you like. <a href="https://code.google.com/p/autoddvpn/wiki/DNSMasq">2</a> <a href="http://ninehills.info/2011/12/17/dnsmasq.html">3</a></p>
+
+<pre><code> mkdir -pv /etc/dnsmasq.d 
+ wget https://smarthosts.googlecode.com/svn/trunk/dnsmasq.conf \
+     -O /etc/dnsmasq.d/killgfw.conf
+</code></pre></li>
+<li><p>Start dnsmasq service. <a href="https://code.google.com/p/autoddvpn/wiki/DNSMasq">s</a></p>
+
+<pre><code> service dnsmasq start
+</code></pre></li>
+<li><p>Disable pppoe&#8217;s dns function. <a href="http://linux.die.net/man/5/pppoe.conf">d</a></p>
+
+<p> open pppoe&#8217;s configure file</p>
+
+<pre><code> vi /etc/ppp/pppoe.conf
+</code></pre>
+
+<p> modify DNS type</p>
+
+<pre><code> DNSTYPE=NOCHANGE
+</code></pre>
+
+<p> and delete system&#8217;s resolv.conf</p>
+
+<pre><code> rm /etc/resolv.conf
+</code></pre></li>
+</ol>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/26/how-to-become-a-hacker/">How to Become a Hacker</a></h1>
     
     
       <p class="meta">
@@ -91,7 +356,7 @@ Added "Historical note". &hellip;">
   </header>
 
 
-<div class="entry-content"><p><a href="mailto:esr@thyrsus.com">Eric Steven Raymond</a></p>
+  <div class="entry-content"><p><a href="mailto:esr@thyrsus.com">Eric Steven Raymond</a></p>
 
 <p>Thyrsus Enterprises</p>
 
@@ -712,53 +977,167 @@ become the master.
 
 <blockquote><p>If you don&#8217;t have a Unix installed on your machine yet, elsewhere on this page I include pointers to where to get the most commonly used free Unix. To be a hacker you need motivation and initiative and the ability to educate yourself. Start now&#8230;</p></blockquote>
 </div>
-
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">wang</span></span>
-
-      
-
-
-
-
-
-
-
-
   
 
 
-<time datetime="2012-11-26T00:00:00+08:00" pubdate data-updated="true">Nov 26<span>th</span>, 2012</time>
+    </article>
+  
+  
+    <article>
       
-
-
-    </p>
+  <header>
     
-      <div class="sharing">
-  
-  
-  
-</div>
-
+      <h1 class="entry-title"><a href="/blog/2012/11/25/markdown/">Markdown Tips</a></h1>
     
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2012/11/25/markdown/" title="Previous Post: Markdown Tips">&laquo; Markdown Tips</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2012/11/28/dnsmasq/" title="Next Post: dnsmasq">dnsmasq &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
+    
+      <p class="meta">
+        
 
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-25T00:00:00+08:00" pubdate data-updated="true">Nov 25<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is just a test of <em>awesome</em> Jekyll static website generator.</p>
+
+<h3>Block Elements</h3>
+
+<h4>段落 (PARAGRAPH)</h4>
+
+<p>连续的行就会自然地形成段落，如果出现空行，则会自动分段</p>
+
+<p>你瞧，是不是分段了？因为我真的空了一行:)</p>
+
+<h4>标题 (HEADER)</h4>
+
+<h5>Setext-style</h5>
+
+<p>在一行文字下加任意数量的=和-就分别得到一级标题和二级标题</p>
+
+<h1>This is an H1</h1>
+
+<h2>This is an H2</h2>
+
+<h5>Atx-style</h5>
+
+<p>在一行文字前加 1 到 6 个 # 就让这行文字变成标题</p>
+
+<h1>This is an H1</h1>
+
+<h2>This is an H2</h2>
+
+<h6>This is an H6</h6>
+
+<h4>块引用 (BLOCKQUOTE)</h4>
+
+<blockquote><p>This is a blockquote with two paragraphs.
+This is a blockquote with two paragraphs.
+This is a blockquote with two paragraphs.</p>
+
+<blockquote><p>This is a blockquote with two paragraphs.
+This is a blockquote with two paragraphs.</p></blockquote></blockquote>
+
+<h4>列表 (LIST)</h4>
+
+<p><em>中文的列表有问题，必须把markdown引擎由默认的 maruku 换成 rdiscount 或者其他的。</em></p>
+
+<p>在配置文件 <code>_config.yml</code> 中添上</p>
+
+<pre><code>markdown: rdiscount
+</code></pre>
+
+<ul>
+<li>星号可以</li>
+<li>加号亦可</li>
+<li>减号居然也可以</li>
+<li>随便什么数字也行，靠，还又没天理？</li>
+</ul>
+
+
+<h4>代码块 (CODE BLOCK)</h4>
+
+<p>This is a normal paragraph:</p>
+
+<pre><code>This is a code block.
+</code></pre>
+
+<h4>水平线 (HORIZONTAL RULE)</h4>
+
+<hr />
+
+<hr />
+
+<hr />
+
+<hr />
+
+<hr />
+
+<h3>行内元素 (SPAN ELEMENT)</h3>
+
+<h4>链接 (LINK)</h4>
+
+<p>This is <a href="https://www.google.com" title="Google">google</a> inline link.</p>
+
+<p><a href="http://www.baidu.com">No title</a> has no title attribute.</p>
+
+<p>This is <a href="/help">relative</a> link on the same server.</p>
+
+<p>This is <a href="http://another-example.com" title="Example">an example</a> reference-style link.</p>
+
+<h4>强调 (EMPHASIS)</h4>
+
+<p>这是<em>单星号</em></p>
+
+<p>这是<em>单下划线</em></p>
+
+<p><strong>双星号</strong>牛逼一些</p>
+
+<p><strong>双下划线</strong>和上面是一样的</p>
+
+<p>*货真价实被双星号包围的感觉不错吧*</p>
+
+<h4>代码 (CODE)</h4>
+
+<p>Use the <code>printf()</code> function.</p>
+
+<p><code>There is a literal backtick (`) here.</code></p>
+
+<p>A single backtick in a code span: <code>`</code></p>
+
+<p>A backtick-delimited string in a code span: <code>`foo`</code></p>
+
+<h4>图片 (IMAGE)</h4>
+
+<p><img src="/assets/themes/twitter/bootstrap/img/glyphicons-halflings.png" title="Img" alt="Alt text" /></p>
 </div>
+  
+  
 
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/2/">Newer &rarr;</a>
+    
+  </div>
+</div>
 <aside class="sidebar">
   
     <section>
@@ -791,7 +1170,7 @@ become the master.
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   
   <a href="https://github.com/wangwangwar">@wangwangwar</a> on GitHub
@@ -824,7 +1203,6 @@ become the master.
 
   
 </aside>
-
 
     </div>
   </div>

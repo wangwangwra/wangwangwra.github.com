@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ldd | My Octopress Blog]]></title>
-  <link href="http://wangwangra.github.com/blog/categories/ldd/atom.xml" rel="self"/>
-  <link href="http://wangwangra.github.com/"/>
-  <updated>2012-12-19T16:10:35+08:00</updated>
-  <id>http://wangwangra.github.com/</id>
+  <title><![CDATA[Category: ldd | T_T]]></title>
+  <link href="http://wangwangwra.github.com/blog/categories/ldd/atom.xml" rel="self"/>
+  <link href="http://wangwangwra.github.com/"/>
+  <updated>2012-12-19T17:40:37+08:00</updated>
+  <id>http://wangwangwra.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[wang]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ldd tips]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/12/17/ldd-tips/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/12/17/ldd-tips/"/>
     <updated>2012-12-17T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/12/17/ldd-tips</id>
+    <id>http://wangwangwra.github.com/blog/2012/12/17/ldd-tips</id>
     <content type="html"><![CDATA[<h3>关于机制和策略(mechanism and policy)</h3>
 
 <blockquote><p>The distinction between mechanism and policy is one of the best ideas

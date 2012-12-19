@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: tools | My Octopress Blog]]></title>
-  <link href="http://wangwangra.github.com/blog/categories/tools/atom.xml" rel="self"/>
-  <link href="http://wangwangra.github.com/"/>
-  <updated>2012-12-19T16:10:35+08:00</updated>
-  <id>http://wangwangra.github.com/</id>
+  <title><![CDATA[Category: tools | T_T]]></title>
+  <link href="http://wangwangwra.github.com/blog/categories/tools/atom.xml" rel="self"/>
+  <link href="http://wangwangwra.github.com/"/>
+  <updated>2012-12-19T17:40:37+08:00</updated>
+  <id>http://wangwangwra.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[wang]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,39 +15,53 @@
   
   <entry>
     <title type="html"><![CDATA[linux tips]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/12/17/linux-tips/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/12/17/linux-tips/"/>
     <updated>2012-12-17T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/12/17/linux-tips</id>
-    <content type="html"><![CDATA[<ul>
-<li><p>以16进制方式查看文件</p>
+    <id>http://wangwangwra.github.com/blog/2012/12/17/linux-tips</id>
+    <content type="html"><![CDATA[<h3>以16进制方式查看文件</h3>
 
-<pre><code>  xxd &lt;file&gt;
+<pre><code>xxd &lt;file&gt;
 </code></pre>
 
-<p>  也可以用vim查看</p>
+<p>也可以用vim查看</p>
 
-<pre><code>  vim -b &lt;file&gt;
+<pre><code>vim -b &lt;file&gt;
 </code></pre>
 
-<p>  转换为16进制</p>
+<p>转换为16进制</p>
 
-<pre><code>  :%!xxd
+<pre><code>:%!xxd
 </code></pre>
 
-<p>  最后再转换回来</p>
+<p>最后再转换回来</p>
 
-<pre><code>  :%!xxd -r
-</code></pre></li>
-</ul>
+<pre><code>:%!xxd -r
+</code></pre>
 
+<h3>用 sed 删除文件中特定行</h3>
+
+<p>删除第三行：</p>
+
+<pre><code>sed -i '3d' file
+</code></pre>
+
+<p>删除以 junk 开头的行：</p>
+
+<pre><code>sed -i '/^junk/d' file
+</code></pre>
+
+<p>删除包含 junk 的行</p>
+
+<pre><code>sed -i '/junk/d' file
+</code></pre>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[git tips]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/12/09/git-tips/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/12/09/git-tips/"/>
     <updated>2012-12-09T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/12/09/git-tips</id>
+    <id>http://wangwangwra.github.com/blog/2012/12/09/git-tips</id>
     <content type="html"><![CDATA[<ul>
 <li><p>modify the <em>last</em> commit</p>
 
@@ -84,9 +98,9 @@
   
   <entry>
     <title type="html"><![CDATA[vim tips]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/12/02/vim-tips/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/12/02/vim-tips/"/>
     <updated>2012-12-02T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/12/02/vim-tips</id>
+    <id>http://wangwangwra.github.com/blog/2012/12/02/vim-tips</id>
     <content type="html"><![CDATA[<ul>
 <li><p>back to last cursor position</p>
 
@@ -151,9 +165,9 @@
   
   <entry>
     <title type="html"><![CDATA[dnsmasq]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/11/28/dnsmasq/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/11/28/dnsmasq/"/>
     <updated>2012-11-28T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/11/28/dnsmasq</id>
+    <id>http://wangwangwra.github.com/blog/2012/11/28/dnsmasq</id>
     <content type="html"><![CDATA[<ol>
 <li><p>Close system's NetworkManager built-in dnsmasq, prepare to run stand-alone dnsmasq. <a href="http://sokratisg.wordpress.com/2012/03/31/ubuntu-precise-12-04-get-rid-of-nms-dnsmasq-and-setup-your-own">1</a></p>
 
@@ -209,9 +223,9 @@
   
   <entry>
     <title type="html"><![CDATA[Markdown Tips]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/11/25/markdown/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/11/25/markdown/"/>
     <updated>2012-11-25T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/11/25/markdown</id>
+    <id>http://wangwangwra.github.com/blog/2012/11/25/markdown</id>
     <content type="html"><![CDATA[<p>This is just a test of <em>awesome</em> Jekyll static website generator.</p>
 
 <h3>Block Elements</h3>

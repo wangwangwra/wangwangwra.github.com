@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: web | My Octopress Blog]]></title>
-  <link href="http://wangwangra.github.com/blog/categories/web/atom.xml" rel="self"/>
-  <link href="http://wangwangra.github.com/"/>
-  <updated>2012-12-19T16:10:35+08:00</updated>
-  <id>http://wangwangra.github.com/</id>
+  <title><![CDATA[Category: web | T_T]]></title>
+  <link href="http://wangwangwra.github.com/blog/categories/web/atom.xml" rel="self"/>
+  <link href="http://wangwangwra.github.com/"/>
+  <updated>2012-12-19T17:40:37+08:00</updated>
+  <id>http://wangwangwra.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[wang]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[something original from twitter bootstrap]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/12/02/something-original-from-twitter-bootstrap/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/12/02/something-original-from-twitter-bootstrap/"/>
     <updated>2012-12-02T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/12/02/something-original-from-twitter-bootstrap</id>
+    <id>http://wangwangwra.github.com/blog/2012/12/02/something-original-from-twitter-bootstrap</id>
     <content type="html"><![CDATA[<p>I clone <a href="http://jekyllbootstrap.com" title="jekyll bootstrap">plusjade's jekyll-bootstrap</a> to setup my <a href="http://wangwangwar.github.com" title="wangwangwar@github">blog@github</a>. I want
 to make the pages more charming and learn a little CSS btw. Plusjade's
 jekyll-bootstrap embeded twitter's bootstrap but out-of-dated. So I clone it
@@ -29,9 +29,9 @@ from <a href="http://twitter.github.com/bootstrap" title="twitter/bootstrap">twi
   
   <entry>
     <title type="html"><![CDATA[css selector]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/11/30/css/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/11/30/css/"/>
     <updated>2012-11-30T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/11/30/css</id>
+    <id>http://wangwangwra.github.com/blog/2012/11/30/css</id>
     <content type="html"><![CDATA[<h3>basic selector</h3>
 
 <ul>

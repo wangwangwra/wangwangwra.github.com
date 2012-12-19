@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: kernel | My Octopress Blog]]></title>
-  <link href="http://wangwangra.github.com/blog/categories/kernel/atom.xml" rel="self"/>
-  <link href="http://wangwangra.github.com/"/>
-  <updated>2012-12-19T16:10:35+08:00</updated>
-  <id>http://wangwangra.github.com/</id>
+  <title><![CDATA[Category: kernel | T_T]]></title>
+  <link href="http://wangwangwra.github.com/blog/categories/kernel/atom.xml" rel="self"/>
+  <link href="http://wangwangwra.github.com/"/>
+  <updated>2012-12-19T17:40:37+08:00</updated>
+  <id>http://wangwangwra.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[wang]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[linux boot]]></title>
-    <link href="http://wangwangra.github.com/blog/2012/11/29/linux-boot/"/>
+    <link href="http://wangwangwra.github.com/blog/2012/11/29/linux-boot/"/>
     <updated>2012-11-29T00:00:00+08:00</updated>
-    <id>http://wangwangra.github.com/blog/2012/11/29/linux-boot</id>
+    <id>http://wangwangwra.github.com/blog/2012/11/29/linux-boot</id>
     <content type="html"><![CDATA[<ul>
 <li>vmlinux <a href="https://en.wikipedia.org/wiki/Vmlinux" title="wiki">v</a></li>
 <li>vmlinuz

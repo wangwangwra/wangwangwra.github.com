@@ -7,18 +7,32 @@ categories: [tools]
 tags: [linux, tips]
 ---
 
-+ 以16进制方式查看文件
+### 以16进制方式查看文件
 
-		xxd <file>
+	xxd <file>
 
-	也可以用vim查看
+也可以用vim查看
 
-		vim -b <file>
+	vim -b <file>
+
+转换为16进制
+
+	:%!xxd
+
+最后再转换回来
+
+	:%!xxd -r
+
+### 用 sed 删除文件中特定行
+
+删除第三行：
 	
-	转换为16进制
+	sed -i '3d' file
 
-		:%!xxd
+删除以 junk 开头的行：
 
-	最后再转换回来
+	sed -i '/^junk/d' file
 
-		:%!xxd -r
+删除包含 junk 的行
+
+	sed -i '/junk/d' file

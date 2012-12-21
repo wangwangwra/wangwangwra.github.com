@@ -4,21 +4,43 @@
   <title><![CDATA[T_T]]></title>
   <link href="http://wangwangwra.github.com/atom.xml" rel="self"/>
   <link href="http://wangwangwra.github.com/"/>
-  <updated>2012-12-19T17:44:08+08:00</updated>
+  <updated>2012-12-22T06:42:17+08:00</updated>
   <id>http://wangwangwra.github.com/</id>
   <author>
     <name><![CDATA[wang]]></name>
-    
+    <email><![CDATA[wangwangwar@gmail.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
-    <title type="html"><![CDATA[new]]></title>
-    <link href="http://wangwangwra.github.com/blog/2012/12/19/new/"/>
-    <updated>2012-12-19T16:06:00+08:00</updated>
-    <id>http://wangwangwra.github.com/blog/2012/12/19/new</id>
-    <content type="html"><![CDATA[
+    <title type="html"><![CDATA[uwsgi tips]]></title>
+    <link href="http://wangwangwra.github.com/blog/2012/12/21/uwsgi-tips/"/>
+    <updated>2012-12-21T22:28:00+08:00</updated>
+    <id>http://wangwangwra.github.com/blog/2012/12/21/uwsgi-tips</id>
+    <content type="html"><![CDATA[<h3>有关参数</h3>
+
+<h4>启动参数</h4>
+
+<ul>
+<li><p>监视模块，改变后重载，方法一</p>
+
+<pre><code>  uwsgi --master --enable-threads --py-auto-reload &lt;secs&gt; \
+
+  --py-auto-reload-ignore /path/to/ignored/file1 \
+
+  [--py-auto-reload-ignore /path/to/ignored/file2]
+</code></pre>
+
+<p>  每隔 <secs> 秒扫描一次。可以设置忽略某些模块。</p></li>
+<li><p>监视模块，改变后重载，方法二</p>
+
+<pre><code>  uwsgi --touch-reload /path/to/file1 [--touch-reload /path/to/file2]
+</code></pre></li>
+</ul>
+
+
+<hr />
 ]]></content>
   </entry>
   

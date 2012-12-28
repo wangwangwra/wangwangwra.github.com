@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: http | T_T]]></title>
+  <link href="http://wangwangwra.github.com/blog/categories/http/atom.xml" rel="self"/>
+  <link href="http://wangwangwra.github.com/"/>
+  <updated>2012-12-28T18:42:22+08:00</updated>
+  <id>http://wangwangwra.github.com/</id>
+  <author>
+    <name><![CDATA[wang]]></name>
+    <email><![CDATA[wangwangwar@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[HTTP [1]]]></title>
+    <link href="http://wangwangwra.github.com/blog/2012/12/26/http-1/"/>
+    <updated>2012-12-26T14:29:00+08:00</updated>
+    <id>http://wangwangwra.github.com/blog/2012/12/26/http-1</id>
+    <content type="html"><![CDATA[<h3>HTTP over TCP</h3>
+
+<h4>How HTTP uses TCP connections?</h4>
+
+<ol>
+<li>The browser extracts the hostname</li>
+<li>The browser looks up the IP address for this hostname (DNS)</li>
+<li>The browser get the port number (80)</li>
+<li>The browser makes a TCP connection to XX.XX.XX.XX port 80</li>
+<li>The browser sends an HTTP GET request message to the server</li>
+<li>The browser reads the HTTP response message from the server</li>
+<li>The browser closes the connection</li>
+</ol>
+
+
+<h4>Delays, bottlenecks and clogs in TCP connections</h4>
+
+<ul>
+<li><p>Notice that the transaction processing time can be quite small compared to
+the time required to set up TCP connections and transfer the request and
+response messages.</p>
+
+<ol>
+<li>DNS lookup delay</li>
+<li>Connection setup delay, occurring for every new TCP connection (TCP Slow
+Start)</li>
+<li>Request message transfer delay</li>
+<li>Response message transfer delay</li>
+</ol>
+</li>
+<li><p>Most common TCP-related delays affecting HTTP programmers</p>
+
+<ol>
+<li><p>The TCP connection setup handshake</p>
+
+<p> When payload is small (usually condition), setup handshake become big.</p></li>
+<li><p>TCP slow-start congestion control</p>
+
+<p> Because of TCP slow-start feature, new connections are slower than
+<em>"tuned"</em> connections. HTTP's open-transfer-close communication model is
+doomed to be slow. Fortunately we have HTTP <em>persistent connections</em>.</p></li>
+<li><p>Nagle's algorithm for data aggregation</p>
+
+<p> Nagle's algorithm attempts to bundle up a large amount of TCP data
+before sending a packet. But small HTTP messages may not fill a packet,
+so they me be delayed waiting additional data that will never arrive.
+And Nagle's algorithm will hold up the sending of data until an
+acknowledgment. but the acknowledgment itself will be delayed 100-200 ms
+by the daleyed acknowledgment algorithm.
+ You can disable Nagle's algorithm by setting TCP_NODELAY parameter
+of TCP protocol stack.</p></li>
+<li><p>TCP's delay acknowledgment algorithm for piggybacked acknowledgments</p>
+
+<p> TCP's piggybacking can make more efficient use of the
+network, but HTTP's request-reply behavior reduces the chances that
+piggybacking can occur.</p></li>
+<li><p>TIME_WAIT delays and port exhaustion</p></li>
+</ol>
+</li>
+</ul>
+
+
+<h4>HTTP optimizations, including parallel, keep-alive, and pipelined connections</h4>
+]]></content>
+  </entry>
+  
+</feed>
